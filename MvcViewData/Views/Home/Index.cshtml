@@ -1,0 +1,41 @@
+﻿<div class="jumbotron">
+    <p>Class-1: ViewData</p>   
+</div>
+
+<div>
+    <p>Message from ViewData: @ViewData["Message"]</p>
+    <p>Current Time: @ViewData["Time"]</p>
+
+    @{
+
+        var employee = (MvcViewData.Models.Employee)ViewData["Employee"];
+        <p><b>Employee Info</b></p>
+        <p>
+            Employee ID: @employee.Id <br />
+            Employee Name: @employee.Name <br />
+            Address: @employee.Address
+        </p>
+    }
+    <p><b>Dish Item</b></p>
+
+    <ul>
+        @{
+
+            foreach (var item in (List<string>)ViewData["Dish"])
+            {
+                <li>@item</li>
+            }
+        }
+    </ul>
+    <p><b>Fruits Name</b></p>
+
+    <ul>
+        @{
+
+            foreach (var item in (string[])ViewData["Fruit"])
+            {
+                <li>@item</li>
+            }
+        }
+    </ul>
+</div>
